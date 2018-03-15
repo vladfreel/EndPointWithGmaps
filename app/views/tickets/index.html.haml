@@ -1,0 +1,22 @@
+%table
+  %thead
+    %tr.table_head_color
+      %th RequestNumber
+      %th SequenceNumber
+      %th RequestType
+      %th PrimaryServiceAreaCode
+      %th AdditionalServiceAreaCodes
+      %th DigsiteInfo
+      %th ResponseDueDateTime
+  %tbody
+    - @tickets.each do |ticket|
+      %tr
+        %td= link_to ticket.RequestNumber, ticket_path(ticket)
+        %td= ticket.SequenceNumber
+        %td= ticket.RequestType
+        %td= ticket.PrimaryServiceAreaCode
+        %td= ticket.AdditionalServiceAreaCodes
+        %td= ticket.DigsiteInfo
+        %td= ticket.ResponseDueDateTime
+
+
