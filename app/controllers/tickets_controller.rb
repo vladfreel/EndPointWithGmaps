@@ -45,6 +45,7 @@ class TicketsController < ApplicationController
     params['AdditionalServiceAreaCodes'] = params.dig('ServiceArea', 'AdditionalServiceAreaCodes')&.delete('SACode')
     params['DigsiteInfo'] = params.dig('ExcavationInfo', 'DigsiteInfo')&.delete('WellKnownText')
     params['excavator_attributes'] = params['Excavator']
+
     params['points_attributes'] = params['Excavator']
     params.delete('DateTimes')
     params.delete('ServiceArea')
