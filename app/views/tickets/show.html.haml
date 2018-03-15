@@ -46,11 +46,12 @@
     %th CrewOnSite
 %tbody
   %tr
-    -#%td= @ticket.excavator.CompanyName
-    -#%td= @ticket.excavator.Street
-    -#%td= @ticket.excavator.City
-    -#%td= @ticket.excavator.State
-    -#%td= @ticket.excavator.Zip
-    -#%td= @ticket.excavator.Type
-    -#%td= @ticket.excavator.CrewOnSite
+    - unless @ticket.excavator.nil?
+      %td= @ticket.excavator.CompanyName
+      %td= @ticket.excavator.Street
+      %td= @ticket.excavator.City
+      %td= @ticket.excavator.State
+      %td= @ticket.excavator.Zip
+      %td= @ticket.excavator.Type
+      %td= @ticket.excavator.CrewOnSite
 

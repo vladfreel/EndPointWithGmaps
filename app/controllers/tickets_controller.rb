@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   protect_from_forgery with: :null_session
-  after_action :set_points, only: [:create]
+  after_action :set_points, only: :create
   def create
     @ticket = Ticket.create(selection_nested_params(ticket_params))
     if @ticket.save!
@@ -50,6 +50,7 @@ class TicketsController < ApplicationController
       @ticket.points.create(latitude: lats[i], longitude: lngs[i])
     end
   end
+
   def selection_nested_params(params)
     params['ResponseDueDateTime'] = params['DateTimes']&.delete('ResponseDueDateTime')
     params['PrimaryServiceAreaCode'] = params.dig('ServiceArea', 'PrimaryServiceAreaCode')&.delete('SACode')
