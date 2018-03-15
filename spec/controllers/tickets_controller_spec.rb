@@ -117,11 +117,15 @@ RSpec.describe TicketsController, type: :controller do
     }
     before {post :create,  params: { ticket:  params , format: :json }}
 
+
     it 'creates new Ticket object' do
       expect(assigns(:ticket)).to eq(Ticket.last)
     end
     it 'redirects to candidates list page' do
       expect(response).to redirect_to Ticket.last
+    end
+    it 'check count of Points' do
+      expect(Point.count).to eq(12)
     end
     context 'check all Ticket params' do
       it 'check RequestNumber exist' do

@@ -38,6 +38,7 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'gmaps4rails'
 gem "haml-rails", "~> 1.0"
 gem 'jquery-rails'
+gem 'dotenv-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

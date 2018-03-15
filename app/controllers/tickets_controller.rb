@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  protect_from_forgery with: :null_session
+  after_action :set_points, only: [:create]
   def create
     @ticket = Ticket.create(selection_nested_params(ticket_params))
     if @ticket.save!
@@ -23,6 +25,7 @@ class TicketsController < ApplicationController
   end
 
   private
+
   def ticket_params
     params.require(:ticket).permit(:RequestNumber,
                                    :SequenceNumber,
@@ -38,6 +41,14 @@ class TicketsController < ApplicationController
                                                 :Zip,
                                                 :Type,
                                                 :CrewOnsite ])
+  end
+
+  def set_points
+    lats = @ticket.set_points_lat(@ticket.DigsiteInfo)
+    lngs = @ticket.set_points_lng(@ticket.DigsiteInfo)
+    for i in 0..lats.count
+      @ticket.points.create(latitude: lats[i], longitude: lngs[i])
+    end
   end
   def selection_nested_params(params)
     params['ResponseDueDateTime'] = params['DateTimes']&.delete('ResponseDueDateTime')
