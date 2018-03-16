@@ -3,12 +3,12 @@ class Ticket < ApplicationRecord
   has_many :points
   accepts_nested_attributes_for :excavator
 
-  def scan_point(p)
-    p.scan(/\-*\d{2}[\.|\,]\d{6,16}/)
+  def scan_point(point)
+    point.scan(/\-*\d{2}[\.|\,]\d{6,16}/)
   end
 
-  def set_points_lat(p)
-    points = scan_point(p)
+  def set_points_lat(point)
+    points = scan_point(point)
     lat = []
     points.each_with_index do |e,i|
       unless i%2 != 0
@@ -18,8 +18,8 @@ class Ticket < ApplicationRecord
     lat
   end
 
-  def set_points_lng(p)
-    points = scan_point(p)
+  def set_points_lng(point)
+    points = scan_point(point)
     lng = []
     points.each_with_index do |e,i|
       unless i%2 == 0

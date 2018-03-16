@@ -33,9 +33,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-generators', '~> 3.3.4'
-gem 'record_tag_helper', '~> 1.0'
-gem 'gmaps4rails'
+
 gem "haml-rails", "~> 1.0"
 gem 'jquery-rails'
 gem 'dotenv-rails'
