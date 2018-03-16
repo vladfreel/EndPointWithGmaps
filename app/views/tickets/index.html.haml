@@ -11,12 +11,12 @@
   %tbody
     - @tickets.each do |ticket|
       %tr
-        %td= link_to ticket.RequestNumber, ticket_path(ticket)
-        %td= ticket.SequenceNumber
-        %td= ticket.RequestType
-        %td= ticket.PrimaryServiceAreaCode
-        %td= ticket.AdditionalServiceAreaCodes
-        %td= ticket.DigsiteInfo
-        %td= ticket.ResponseDueDateTime
+        %td= link_to ticket.request_number, ticket_path(ticket)
+        %td= ticket.sequence_number
+        %td= ticket.request_type
+        %td= ticket.primary_service_area_code
+        %td= ticket.additional_service_area_codes
+        %td= ticket.dig_site_info
+        %td= ticket.response_due_date_time
 
 

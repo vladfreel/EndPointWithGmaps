@@ -2,9 +2,8 @@ class TicketsController < ApplicationController
   protect_from_forgery with: :null_session
   def create
     @ticket = Ticket.create(selection_nested_params(ticket_params))
-    if @ticket.save!
-      redirect_to @ticket
-    end
+    @ticket.save!
+    redirect_to @ticket
   end
 
   def index
@@ -13,6 +12,7 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    gon.dig_site_info = @ticket.dig_site_info
     respond_to do |format|
       format.html
       format.json
@@ -20,7 +20,6 @@ class TicketsController < ApplicationController
   end
 
   private
-
   def ticket_params
     params.require(:ticket).permit(:RequestNumber,
                                    :SequenceNumber,

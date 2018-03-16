@@ -44,8 +44,6 @@ GEM
       io-like (~> 0.3.0)
     arel (8.0.0)
     bindex (0.5.0)
-    bootstrap-generators (3.3.4)
-      railties (>= 3.1.0)
     builder (3.2.3)
     byebug (10.0.0)
     capybara (2.18.0)
@@ -88,7 +86,10 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    gmaps4rails (2.1.2)
+    gon (6.2.0)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -167,8 +168,8 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    record_tag_helper (1.0.0)
-      actionview (~> 5.x)
+    request_store (1.4.0)
+      rack (>= 1.4)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -246,7 +247,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-generators (~> 3.3.4)
   byebug
   capybara
   chromedriver-helper
@@ -255,7 +255,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
-  gmaps4rails
+  gon
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails
@@ -264,7 +264,6 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.5)
   rails-controller-testing
-  record_tag_helper (~> 1.0)
   rspec-rails (~> 3.7)
   sass-rails (~> 5.0)
   selenium-webdriver
