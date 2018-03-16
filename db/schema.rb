@@ -10,40 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315095253) do
+ActiveRecord::Schema.define(version: 20180315095247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "excavators", force: :cascade do |t|
-    t.string "CompanyName"
-    t.string "Address"
-    t.string "City"
-    t.string "State"
-    t.string "Zip"
-    t.string "Type"
+    t.string "company_name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "type"
     t.integer "ticket_id"
-    t.boolean "CrewOnsite"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "points", force: :cascade do |t|
-    t.float "latitude"
-    t.float "longitude"
-    t.integer "ticket_id"
+    t.boolean "crew_on_site"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.string "RequestNumber"
-    t.integer "SequenceNumber"
-    t.string "RequestType"
-    t.string "PrimaryServiceAreaCode"
-    t.string "AdditionalServiceAreaCodes"
-    t.text "DigsiteInfo"
-    t.datetime "ResponseDueDateTime"
+    t.string "request_number"
+    t.integer "sequence_number"
+    t.string "request_type"
+    t.string "primary_service_area_code"
+    t.string "additional_service_area_codes"
+    t.text "dig_site_info"
+    t.datetime "response_due_date_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

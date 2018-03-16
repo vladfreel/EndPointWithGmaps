@@ -124,53 +124,50 @@ RSpec.describe TicketsController, type: :controller do
     it 'redirects to candidates list page' do
       expect(response).to redirect_to Ticket.last
     end
-    it 'check count of Points' do
-      expect(Point.count).to eq(12)
-    end
     context 'check all Ticket params' do
       it 'check RequestNumber exist' do
-        expect(Ticket.last.RequestNumber).to eq('09252012-00001')
+        expect(Ticket.last.request_number).to eq('09252012-00001')
       end
       it 'check SequenceNumber exist' do
-        expect(Ticket.last.SequenceNumber).to eq(2421)
+        expect(Ticket.last.sequence_number).to eq(2421)
       end
       it 'check RequestType exist' do
-        expect(Ticket.last.RequestType).to eq('Normal')
+        expect(Ticket.last.request_type).to eq('Normal')
       end
       it 'check ResponseDueDateTime exist' do
-        expect(Ticket.last.ResponseDueDateTime).to eq('2011/07/13 23:59:59')
+        expect(Ticket.last.response_due_date_time).to eq('2011/07/13 23:59:59')
       end
       it 'check PrimaryServiceAreaCode exist' do
-        expect(Ticket.last.PrimaryServiceAreaCode).to eq('ZZGL103')
+        expect(Ticket.last.primary_service_area_code).to eq('ZZGL103')
       end
       it 'check AdditionalServiceAreaCodes exist' do
-        expect(Ticket.last.AdditionalServiceAreaCodes).to eq('["ZZL01", "ZZL02", "ZZL03"]')
+        expect(Ticket.last.additional_service_area_codes).to eq('["ZZL01", "ZZL02", "ZZL03"]')
       end
       it 'check DigsiteInfo exist' do
-        expect(Ticket.last.DigsiteInfo) == 'POLYGON((-81.13390268058475 32.07206917625161,-81.14660562247929 32.04064386441295,-81.0885840770691...94413 32.07090546831167,-81.12154306144413 32.08806865844325,-81.13390268058475 32.07206917625161))'
+        expect(Ticket.last.dig_site_info) == 'POLYGON((-81.13390268058475 32.07206917625161,-81.14660562247929 32.04064386441295,-81.0885840770691...94413 32.07090546831167,-81.12154306144413 32.08806865844325,-81.13390268058475 32.07206917625161))'
       end
     end
     context 'check all Excavator params' do
       it 'check CompanyName exist' do
-        expect(Excavator.last.CompanyName).to eq('John Doe CONSTRUCTION')
+        expect(Excavator.last.company_name).to eq('John Doe CONSTRUCTION')
       end
       it 'check Address exist' do
-        expect(Excavator.last.Address).to eq('555 Some RD')
+        expect(Excavator.last.address).to eq('555 Some RD')
       end
       it 'check City exist' do
-        expect(Excavator.last.City).to eq('SOME PARK')
+        expect(Excavator.last.city).to eq('SOME PARK')
       end
       it 'check State exist' do
-        expect(Excavator.last.State).to eq('ZZ')
+        expect(Excavator.last.state).to eq('ZZ')
       end
       it 'check Zip exist' do
-        expect(Excavator.last.Zip).to eq('55555')
+        expect(Excavator.last.zip).to eq('55555')
       end
       it 'check Type exist' do
-        expect(Excavator.last.Type).to eq('Excavator')
+        expect(Excavator.last.type).to eq('Excavator')
       end
       it 'check CrewOnSite exist' do
-        expect(Excavator.last.CrewOnsite).to eq(true)
+        expect(Excavator.last.crew_on_site).to eq(true)
       end
     end
   end

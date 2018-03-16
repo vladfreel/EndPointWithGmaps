@@ -1,7 +1,6 @@
-%script{:src => "//maps.google.com/maps/api/js?key=#{ENV['MAPS']}"}
-%script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
-%script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", :type => "text/javascript"}
-
+%head
+  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS']}&callback=initMap"}
+    :cdata
 %table
   %thead
     %tr.table_head_color
@@ -23,14 +22,6 @@
       %td= @ticket.ResponseDueDateTime
 %br
 #map{:style => "width: 800px; height: 400px;"}
-:javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(#{raw @hash.to_json});
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-  });
-
 %h1
   Excavator data:
 %br
@@ -54,4 +45,8 @@
       %td= @ticket.excavator.Zip
       %td= @ticket.excavator.Type
       %td= @ticket.excavator.CrewOnSite
+
+
+
+
 
