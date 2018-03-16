@@ -38,7 +38,6 @@ function initMap(polygon) {
                 polylines[i].push(latlng);
             }
         }
-        console.log(polylines);
         toReturn.push(
             new google.maps.Polygon({
                 map: map,
